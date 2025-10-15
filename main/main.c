@@ -84,7 +84,7 @@ void mpu6050_task(void *p) {
     FusionAhrsInitialise(&ahrs);
     btn newbtn;
 
-    int acc;
+    
 
     while(1) {
         mpu6050_read_raw(acceleration, gyro, &temp);
@@ -128,7 +128,7 @@ void mpu6050_task(void *p) {
        xQueueSend(xQueuePos, &newbtn, 0);
     }
       
-    
+    int acc;
 
     acc = sqrt((acceleration[0]*acceleration[0]) + (acceleration[1]*acceleration[1]) + (acceleration[2]*acceleration[2])) - 15000;
 
